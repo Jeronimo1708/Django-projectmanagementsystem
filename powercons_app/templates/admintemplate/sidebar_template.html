@@ -1,0 +1,233 @@
+{% load static %}
+
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+      <!-- Brand Logo -->
+      <a href="{% url 'admin_home' %}" class="brand-link">
+        <img src="{% static 'dist/img/AdminLTELogo.png' %}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+            style="opacity: .8">
+        <span class="brand-text font-weight-light">Powercons</span>
+      </a>
+
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+          <div class="image">
+            <img src="{% static 'dist/img/user2-160x160.jpg' %}" class="img-circle elevation-2" alt="User Image">
+          </div>
+          <div class="info">
+            <a href="{% url 'admin_profile' %}" class="d-block">{{ user.first_name }} {{ user.last_name }}</a>
+          </div>
+        </div>
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <!-- Add icons to the links using the .nav-icon class
+                with font-awesome or any other icon font library -->
+
+            <li class="nav-item">
+              {% url 'admin_home' as admin_home %}
+              <a href="{{ admin_home }}" class="nav-link {% if request.path == admin_home %} active {% endif %}">
+                <i class="nav-icon fas fa-tachometer-alt"></i>
+                <p>
+                  Home
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              {% url 'manage_staff' as manage_staff %}
+              {% url 'edit_staff' staff_id=id as edit_staff %}
+              <a href="{{ manage_staff }}" class="nav-link {% if request.path == manage_staff %} active {% endif %} {% if request.path == edit_staff %} active {% endif %}">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                  Staff
+                </p>
+              </a>
+            </li>
+            
+            <!--<li class="nav-item">-->
+            <!--  {% url 'add_staff' as add_staff %}-->
+            <!--  <a href="{{ add_staff }}" class="nav-link {% if request.path == add_staff %} active {% endif %}">-->
+            <!--    <i class="nav-icon fas fa-th"></i>-->
+            <!--    <p>-->
+            <!--      Add Staff-->
+            <!--    </p>-->
+            <!--  </a>-->
+            <!--</li>-->
+
+            <li class="nav-item">
+              {% url 'manage_client' as manage_client %}
+              {% url 'edit_client' client_id=id as edit_client %}
+              <a href="{{ manage_client }}" class="nav-link {% if request.path == manage_client %} active {% endif %} {% if request.path == edit_client %} active {% endif %}">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                  Clients
+                </p>
+              </a>
+            </li>
+
+            <!--<li class="nav-item">-->
+            <!--  {% url 'add_client' as add_client %}-->
+            <!--  <a href="{{ add_client }}" class="nav-link {% if request.path == add_client %} active {% endif %}">-->
+            <!--    <i class="nav-icon fas fa-th"></i>-->
+            <!--    <p>-->
+            <!--      Add Client-->
+            <!--    </p>-->
+            <!--  </a>-->
+            <!--</li>-->
+
+            <li class="nav-item">
+              {% url 'manage_project' as manage_project %}
+              {% url 'edit_project' project_id=id as edit_project %}
+              <a href="{{ manage_project }}" class="nav-link {% if request.path == manage_project %} active {% endif %} {% if request.path == edit_project %} active {% endif %}">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                  Projects
+                </p>
+              </a>
+            </li>
+
+            <!--<li class="nav-item">-->
+            <!--{% url 'add_project' as add_project %}-->
+            <!--  <a href="{{ add_project }}" class="nav-link {% if request.path == add_project %} active {% endif %}">-->
+            <!--    <i class="nav-icon fas fa-th"></i>-->
+            <!--    <p>-->
+            <!--      Add Project-->
+            <!--    </p>-->
+            <!--  </a>-->
+            <!--</li>-->
+
+            <li class="nav-item">
+              {% url 'manage_task' as manage_task %}
+              {% url 'edit_task' task_id=id as edit_task %}
+              <a href="{{ manage_task }}" class="nav-link {% if request.path == manage_task %} active {% endif %} {% if request.path == edit_task %} active {% endif %}">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                  Tasks
+                </p>
+              </a>
+            </li>
+
+            <!--<li class="nav-item">-->
+            <!--  {% url 'add_task' as add_task %}-->
+            <!--  <a href="{{ add_task }}" class="nav-link {% if request.path == add_task %} active {% endif %}">-->
+            <!--    <i class="nav-icon fas fa-th"></i>-->
+            <!--    <p>-->
+            <!--      Add Task-->
+            <!--    </p>-->
+            <!--  </a>-->
+            <!--</li>-->
+
+
+            <li class="nav-item">
+              {% url 'manage_contract' as manage_contract %}
+              {% url 'edit_contract' contract_id=id as edit_contract %}
+              <a href="{{ manage_contract }}" class="nav-link {% if request.path == manage_contract %} active {% endif %} {% if request.path == edit_contract %} active {% endif %}">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                  Contracts 
+                </p>
+              </a>
+            </li>
+
+            <!--<li class="nav-item">-->
+            <!--  {% url 'add_contract' as add_contract %}-->
+            <!--  <a href="{{ add_contract }}" class="nav-link {% if request.path == add_contract %} active {% endif %}">-->
+            <!--    <i class="nav-icon fas fa-th"></i>-->
+            <!--    <p>-->
+            <!--      Add Contract-->
+            <!--    </p>-->
+            <!--  </a>-->
+            <!--</li>-->
+
+
+            <li class="nav-item">
+              {% url 'manage_supplier' as manage_supplier %}
+              <a href="{{ manage_supplier }}" class="nav-link {% if request.path == manage_supplier %} active {% endif %}">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                  Suppliers
+                </p>
+              </a>
+            </li>
+
+            <!--<li class="nav-item">-->
+            <!--  {% url 'add_supplier' as add_supplier %}-->
+            <!--  <a href="{{ add_supplier }}" class="nav-link {% if request.path == add_supplier %} active {% endif %}">-->
+            <!--    <i class="nav-icon fas fa-th"></i>-->
+            <!--    <p>-->
+            <!--      Add Supplier-->
+            <!--    </p>-->
+            <!--  </a>-->
+            <!--</li>-->
+            
+            
+
+            <li class="nav-item">
+              {% url 'manage_service' as manage_service %}
+              <a href="{{ manage_service }}" class="nav-link {% if request.path == manage_service %} active {% endif %}">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                  Services
+                </p>
+              </a>
+            </li>
+
+            <!--<li class="nav-item">-->
+            <!--  {% url 'add_service' as add_service %}-->
+            <!--  <a href="{{ add_service }}" class="nav-link {% if request.path == add_service %} active {% endif %}">-->
+            <!--    <i class="nav-icon fas fa-th"></i>-->
+            <!--    <p>-->
+            <!--      Add Services-->
+            <!--    </p>-->
+            <!--  </a>-->
+            <!--</li>-->
+
+            <li class="nav-item">
+              {% url 'manage_part' as manage_part %}
+              <a href="{{ manage_part }}" class="nav-link {% if request.path == manage_part %} active {% endif %}">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                  Parts
+                </p>
+              </a>
+            </li>
+            
+            <!--<li class="nav-item">-->
+            <!--  {% url 'add_part' as add_part %}-->
+            <!--  <a href="{{ add_part }}" class="nav-link {% if request.path == add_part %} active {% endif %}">-->
+            <!--    <i class="nav-icon fas fa-th"></i>-->
+            <!--    <p>-->
+            <!--      Add parts-->
+            <!--    </p>-->
+            <!--  </a>-->
+            <!--</li>-->
+            
+            <li class="nav-item">
+              {% url 'manage_payment' as manage_payment %}
+              <a href="{{ manage_payment }}" class="nav-link {% if request.path == manage_payment %} active {% endif %}">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                  Payments
+                </p>
+              </a>
+            </li>
+            
+            <!--<li class="nav-item">-->
+            <!--  {% url 'add_payment' as add_payment %}-->
+            <!--  <a href="{{ add_payment }}" class="nav-link {% if request.path == add_payment %} active {% endif %}">-->
+            <!--    <i class="nav-icon fas fa-th"></i>-->
+            <!--    <p>-->
+            <!--      Add Payments-->
+            <!--    </p>-->
+            <!--  </a>-->
+            <!--</li>-->
+
+          </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+      </div>
+      <!-- /.sidebar -->
+    </aside>
