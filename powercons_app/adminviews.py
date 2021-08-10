@@ -37,21 +37,7 @@ def admin_home(request):
         client_count = Clients.objects.filter(project_id=project.id).count()
         task_list.append(task.task_name)
         client_count_list_in_task.append(client_count)
-    
-    # For Saffs
-    # staff_attendance_present_list=[]
-    # staff_attendance_leave_list=[]
-    # staff_name_list=[]
 
-    # staffs = Staffs.objects.all()
-    # for staff in staffs:
-    #     subject_ids = Subjects.objects.filter(staff_id=staff.admin.id)
-    #     attendance = Attendance.objects.filter(subject_id__in=subject_ids).count()
-    #     leaves = LeaveReportStaff.objects.filter(staff_id=staff.id, leave_status=1).count()
-    #     staff_attendance_present_list.append(attendance)
-    #     staff_attendance_leave_list.append(leaves)
-    #     staff_name_list.append(staff.admin.first_name)
-        
     
     context={
         "all_client_count": all_client_count,
@@ -63,12 +49,6 @@ def admin_home(request):
         "client_count_list_in_project": client_count_list_in_project,
         "task_list": task_list,
         "client_count_list_in_task": client_count_list_in_task,
-        # "staff_attendance_present_list": staff_attendance_present_list,
-        # "staff_attendance_leave_list": staff_attendance_leave_list,
-        # "staff_name_list": staff_name_list,
-        # "student_attendance_present_list": student_attendance_present_list,
-        # "student_attendance_leave_list": student_attendance_leave_list,
-        # "student_name_list": student_name_list,
     }
     return render(request, "admintemplate/home_content.html", context)
     
@@ -342,8 +322,6 @@ def add_client_save(request):
             location = form.cleaned_data['location']
             project = form.cleaned_data['project_id']
             contract = form.cleaned_data['contract_id']
-            
-            #gender = form.cleaned_data['gender']
 
             # Getting Profile Pic first
             # First Check whether the file is selected or not
@@ -369,8 +347,6 @@ def add_client_save(request):
                 contract_obj = Contracts.objects.get(id=contract)
                 user.clients.contract_id = contract_obj
 
-                #user.students.gender = gender
-                #user.students.profile_pic = profile_pic_url
                 user.clients.save()
                 messages.success(request, "Client Added Successfully!")
                 return redirect('add_client')
@@ -390,7 +366,6 @@ def manage_client(request):
 
 
 def edit_client(request, client_id):
-    # Adding Student ID into Session Variable
     request.session['client_id'] = client_id
 
     client = Clients.objects.get(admin=client_id)
@@ -402,7 +377,6 @@ def edit_client(request, client_id):
     form.fields['last_name'].initial = client.admin.last_name
     form.fields['location'].initial = client.location
     form.fields['project_id'].initial = client.project_id.id
-    #form.fields['gender'].initial = student.gender
     form.fields['contract_id'].initial = client.contract_id.id
 
     context = {
@@ -429,7 +403,6 @@ def edit_client_save(request):
             last_name = form.cleaned_data['last_name']
             location = form.cleaned_data['location']
             project_id = form.cleaned_data['project_id']
-            #gender = form.cleaned_data['gender']
             contract_id = form.cleaned_data['contract_id']
 
             # Getting Profile Pic first
@@ -452,7 +425,7 @@ def edit_client_save(request):
                 user.username = username
                 user.save()
 
-                # Then Update Students Table
+                # Then Update Client Table
                 client_model = Clients.objects.get(admin=client_id)
                 client_model.location = location
 
@@ -462,11 +435,7 @@ def edit_client_save(request):
                 contract_obj = Contracts.objects.get(id=contract_id)
                 client_model.contract_id = contract_obj
 
-                # student_model.gender = gender
-                # if profile_pic_url != None:
-                #     student_model.profile_pic = profile_pic_url
                 client_model.save()
-                # Delete student_id SESSION after the data is updated
                 del request.session['client_id']
 
                 messages.success(request, "Client Updated Successfully!")
@@ -566,13 +535,11 @@ def edit_task_save(request):
             task.save()
 
             messages.success(request, "Task Updated Successfully.")
-            # return redirect('/edit_subject/'+subject_id)
             return HttpResponseRedirect(reverse("edit_task", kwargs={"task_id":task_id}))
 
         except:
             messages.error(request, "Failed to Update Task.")
             return HttpResponseRedirect(reverse("edit_task", kwargs={"task_id":task_id}))
-            # return redirect('/edit_subject/'+subject_id)
 
 
 
@@ -726,12 +693,10 @@ def edit_service_save(request):
             service.supplier_id = suppliertask.staff_id = staff
             service.save()
             messages.success(request, "Service Updated Successfully.")
-            # return redirect('/edit_subject/'+subject_id)
             return HttpResponseRedirect(reverse("edit_service", kwargs={"service_id":service_id}))
         except:
             messages.error(request, "Failed to Update Service.")
             return HttpResponseRedirect(reverse("edit_service", kwargs={"service_id":service_id}))
-            # return redirect('/edit_subject/'+subject_id)
 
 
 
@@ -814,12 +779,10 @@ def edit_part_save(request):
             part.supplier_id = part
             part.save()
             messages.success(request, "Part Updated Successfully.")
-            # return redirect('/edit_subject/'+subject_id)
             return HttpResponseRedirect(reverse("edit_part", kwargs={"part_id":part_id}))
         except:
             messages.error(request, "Failed to Update Part.")
             return HttpResponseRedirect(reverse("edit_part", kwargs={"part_id":part_id}))
-            # return redirect('/edit_subject/'+subject_id)
 
 
 
@@ -875,145 +838,7 @@ def check_username_exist(request):
 
 
 
-# def client_feedback_message(request):
-#     feedbacks = FeedBackStudent.objects.all()
-#     context = {
-#         "feedbacks": feedbacks
-#     }
-#     return render(request, 'admintemplate/client_feedback_template.html', context)
 
-
-# @csrf_exempt
-# def client_feedback_message_reply(request):
-#     feedback_id = request.POST.get('id')
-#     feedback_reply = request.POST.get('reply')
-
-#     try:
-#         feedback = FeedBackStudent.objects.get(id=feedback_id)
-#         feedback.feedback_reply = feedback_reply
-#         feedback.save()
-#         return HttpResponse("True")
-
-#     except:
-#         return HttpResponse("False")
-
-
-# def staff_feedback_message(request):
-#     feedbacks = FeedBackStaffs.objects.all()
-#     context = {
-#         "feedbacks": feedbacks
-#     }
-#     return render(request, 'hod_template/staff_feedback_template.html', context)
-
-
-# @csrf_exempt
-# def staff_feedback_message_reply(request):
-#     feedback_id = request.POST.get('id')
-#     feedback_reply = request.POST.get('reply')
-
-#     try:
-#         feedback = FeedBackStaffs.objects.get(id=feedback_id)
-#         feedback.feedback_reply = feedback_reply
-#         feedback.save()
-#         return HttpResponse("True")
-
-#     except:
-#         return HttpResponse("False")
-
-
-# def student_leave_view(request):
-#     leaves = LeaveReportStudent.objects.all()
-#     context = {
-#         "leaves": leaves
-#     }
-#     return render(request, 'hod_template/student_leave_view.html', context)
-
-# def student_leave_approve(request, leave_id):
-#     leave = LeaveReportStudent.objects.get(id=leave_id)
-#     leave.leave_status = 1
-#     leave.save()
-#     return redirect('student_leave_view')
-
-
-# def student_leave_reject(request, leave_id):
-#     leave = LeaveReportStudent.objects.get(id=leave_id)
-#     leave.leave_status = 2
-#     leave.save()
-#     return redirect('student_leave_view')
-
-
-# def staff_leave_view(request):
-#     leaves = LeaveReportStaff.objects.all()
-#     context = {
-#         "leaves": leaves
-#     }
-#     return render(request, 'hod_template/staff_leave_view.html', context)
-
-
-# def staff_leave_approve(request, leave_id):
-#     leave = LeaveReportStaff.objects.get(id=leave_id)
-#     leave.leave_status = 1
-#     leave.save()
-#     return redirect('staff_leave_view')
-
-
-# def staff_leave_reject(request, leave_id):
-#     leave = LeaveReportStaff.objects.get(id=leave_id)
-#     leave.leave_status = 2
-#     leave.save()
-#     return redirect('staff_leave_view')
-
-
-# def admin_view_attendance(request):
-#     subjects = Subjects.objects.all()
-#     session_years = SessionYearModel.objects.all()
-#     context = {
-#         "subjects": subjects,
-#         "session_years": session_years
-#     }
-#     return render(request, "hod_template/admin_view_attendance.html", context)
-
-
-# @csrf_exempt
-# def admin_get_attendance_dates(request):
-#     # Getting Values from Ajax POST 'Fetch Student'
-#     subject_id = request.POST.get("subject")
-#     session_year = request.POST.get("session_year_id")
-
-#     # Students enroll to Course, Course has Subjects
-#     # Getting all data from subject model based on subject_id
-#     subject_model = Subjects.objects.get(id=subject_id)
-
-#     session_model = SessionYearModel.objects.get(id=session_year)
-
-#     # students = Students.objects.filter(course_id=subject_model.course_id, session_year_id=session_model)
-#     attendance = Attendance.objects.filter(subject_id=subject_model, session_year_id=session_model)
-
-#     # Only Passing Student Id and Student Name Only
-#     list_data = []
-
-#     for attendance_single in attendance:
-#         data_small={"id":attendance_single.id, "attendance_date":str(attendance_single.attendance_date), "session_year_id":attendance_single.session_year_id.id}
-#         list_data.append(data_small)
-
-#     return JsonResponse(json.dumps(list_data), content_type="application/json", safe=False)
-
-
-# @csrf_exempt
-# def admin_get_attendance_student(request):
-#     # Getting Values from Ajax POST 'Fetch Student'
-#     attendance_date = request.POST.get('attendance_date')
-#     attendance = Attendance.objects.get(id=attendance_date)
-
-#     attendance_data = AttendanceReport.objects.filter(attendance_id=attendance)
-#     # Only Passing Student Id and Student Name Only
-#     list_data = []
-
-#     for student in attendance_data:
-#         data_small={"id":student.student_id.admin.id, "name":student.student_id.admin.first_name+" "+student.student_id.admin.last_name, "status":student.status}
-#         list_data.append(data_small)
-
-#     return JsonResponse(json.dumps(list_data), content_type="application/json", safe=False)
 
 
 def admin_profile(request):
