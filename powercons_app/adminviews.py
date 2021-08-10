@@ -323,17 +323,6 @@ def add_client_save(request):
             project = form.cleaned_data['project_id']
             contract = form.cleaned_data['contract_id']
 
-            # Getting Profile Pic first
-            # First Check whether the file is selected or not
-            # Upload only if file is selected
-            # if len(request.FILES) != 0:
-            #     profile_pic = request.FILES['profile_pic']
-            #     fs = FileSystemStorage()
-            #     filename = fs.save(profile_pic.name, profile_pic)
-            #     profile_pic_url = fs.url(filename)
-            # else:
-            #     profile_pic_url = None
-
 
             try:
                 user = CustomUser.objects.create_user(username=username, password=password, email=email, first_name=first_name, last_name=last_name, user_type=3)
@@ -404,17 +393,6 @@ def edit_client_save(request):
             location = form.cleaned_data['location']
             project_id = form.cleaned_data['project_id']
             contract_id = form.cleaned_data['contract_id']
-
-            # Getting Profile Pic first
-            # First Check whether the file is selected or not
-            # Upload only if file is selected
-            # if len(request.FILES) != 0:
-            #     profile_pic = request.FILES['profile_pic']
-            #     fs = FileSystemStorage()
-            #     filename = fs.save(profile_pic.name, profile_pic)
-            #     profile_pic_url = fs.url(filename)
-            # else:
-            #     profile_pic_url = None
 
             try:
                 # First Update into Custom User Model
@@ -554,10 +532,6 @@ def delete_task(request, task_id):
         return redirect('manage_task')
         
     
-
-
-
-
 
 def add_supplier(request):
     return render(request, "admintemplate/add_suppliers_template.html")
@@ -795,26 +769,6 @@ def delete_part(request, part_id):
     except:
         messages.error(request, "Failed to Delete Part.")
         return redirect('manage_part')      
-
-# def add_supplier(request):
-#     return render(request, "admintemplate/add_suppliers_template.html")
-
-
-# def add_supplier_save(request):
-#     if request.method != "POST":
-#         messages.error(request, "Invalid Method")
-#         return redirect('add_supplier')
-#     else:
-#         supplier_name = request.POST.get('supplier_name')
-
-#         try:
-#             supplier = Suppliers(supplier_name=supplier_name)
-#             supplier.save()
-#             messages.success(request, "Supplier added Successfully!")
-#             return redirect("add_supplier")
-#         except:
-#             messages.error(request, "Failed to Add Supplier")
-#             return redirect("add_supplier")
 
 
 @csrf_exempt
