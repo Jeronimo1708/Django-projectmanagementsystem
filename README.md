@@ -30,4 +30,18 @@ There are specific tasks for each project. Every task is assigned to a staff mem
 
 There are Suppliers who provide services are parts for the contruction work which can be stored in this application.
 There are payment which correspond to the clients.
+____________________________________________________________________________________________________________________
+
+I have built this independent project for credits in college. I used AWS cloud9 to do all the coding which included Django, HTML, CSS and Javascript to make a beautiful and responsive web application. I have use Amazon RDS instance of MYSQL database.
+
+Learnings
+
+AWS cloud9
+AWS RDS
+Django
+MYSQL
+HTML
+CSS
+Javascript
+BAsics of AGILE.
 
