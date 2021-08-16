@@ -47,27 +47,26 @@ The recommended workfow before using this application is
 - The admin user will first create a new contract for a new client.
 - Then admin will add that client to the system and link the project to the client.
 
+___________________________________________________________________________________________________________________
 
-
-
-
-
+# Future Functionalities
 
 I want to include future functionalities wherein I will be making login views for both staff and clients.
-
+- Staff and clients will have their own login credential which they can use and both will have their own views.
+- For example - When a staff logs in, they will be able to see the tasks which they are assigned to whereas when a client logs in, they will be able to see their open projects.
 
 ____________________________________________________________________________________________________________________
 
-I have built this independent project for credits in college. I used AWS cloud9 to do all the coding which included Django, HTML, CSS and Javascript to make a beautiful and responsive web application. I have use Amazon RDS instance of MYSQL database.
+I have built this independent project for credits in college. I used AWS cloud9 to do the coding which included Django, HTML, CSS and Javascript to make a beautiful and responsive web application. I have used Amazon RDS instance of MYSQL database.
 
 Learnings
 
-AWS cloud9
-AWS RDS
-Django
-MYSQL
-HTML
-CSS
-Javascript
-BAsics of AGILE.
+- AWS cloud9
+- AWS RDS
+- Django 3.1
+- MYSQL
+- HTML
+- CSS
+- Javascript
+- Basics of AGILE development.
 
