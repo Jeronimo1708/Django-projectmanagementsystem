@@ -26,20 +26,36 @@ To replicate this project
 - If everything is installed successfully, you will be redirected to the login page.
 ![login](https://user-images.githubusercontent.com/64229911/129592121-da7b2174-98fd-4d4d-adc1-48b5a376882a.PNG)
 
+- You can enter the dummy admin credentials to login
+- The admin dashboard looks like this
+- ![dashboard](https://user-images.githubusercontent.com/64229911/129622818-c0a0dc64-73bd-4084-a61a-f94cc1092b94.PNG)
+- You will be able to see the count of existing clients, staff, projects and Tasks on the dashboard.
+- There is a setting option through which admin details can be changed.
+- The sidebar contain details about Staff, Clients, Projects, Tasks, Contracts, Suppliers, Services, Parts, Payments.
+- On clicking on any of the links, existing entries from the database can be viewed and edited. Also, new details can be added for each of these.
+- For example the on clicking staff, you will see the following
+- ![Staff](https://user-images.githubusercontent.com/64229911/129623230-3f6ded23-4376-4fc8-9cdc-a5e1a5f89f9a.PNG)
+- As you can see, each individual entry can be edited and deleted.
+- Also, there is a Add Staff button where you can add new staff members. The page looks like this.
+- ![add staff](https://user-images.githubusercontent.com/64229911/129623396-3f8ba93f-2298-41c7-9a0c-eb49c1ce8d45.PNG)
+
+
+The recommended workfow before using this application is
+
+-System workflow
+- As this application is built for a construction company to keep a track of their projects, clients etc. There will be projects created and the projects will have fixed tasks. For ex - Building project will have a set number of tasks. Electrical project will have its own set of tasks and these tasks will not change under normal circumstances. 
+- The admin user will first create a new contract for a new client.
+- Then admin will add that client to the system and link the project to the client.
+
+
+
+
 
 
 
 I want to include future functionalities wherein I will be making login views for both staff and clients.
 
-Workflow
 
-For a new client - first create the contract.
-Once contract is created add the client.
-Project can be tracked in the projects tab.
-There are specific tasks for each project. Every task is assigned to a staff member.
-
-There are Suppliers who provide services are parts for the contruction work which can be stored in this application.
-There are payment which correspond to the clients.
 ____________________________________________________________________________________________________________________
 
 I have built this independent project for credits in college. I used AWS cloud9 to do all the coding which included Django, HTML, CSS and Javascript to make a beautiful and responsive web application. I have use Amazon RDS instance of MYSQL database.
