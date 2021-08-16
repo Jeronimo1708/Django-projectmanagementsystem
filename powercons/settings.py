@@ -25,7 +25,7 @@ SECRET_KEY = 'rhd5$ztb4cs!62r+joss*h5qcy&gd0m!gq(33rv!=#r%1e#xre'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*'] # to allow all host databases
 
 
 # Application definition
@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'powercons_app'
+    'powercons_app' # the application in Django
 ]
 
 MIDDLEWARE = [
@@ -75,6 +75,8 @@ WSGI_APPLICATION = 'powercons.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
+
+# AWS RDS database information
 
 DATABASES = {
     'default': {
