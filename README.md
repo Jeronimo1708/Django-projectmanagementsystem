@@ -6,6 +6,7 @@ The admin will have control over the entire system i.e. they can
 - Add, edit, delete staff
 - Add, edit, delete projects
 - Add, edit, delete tasks
+- Add, edit, delete contracts
 - Add, edit, delete suppliers
 - Add, edit, delete services that the suppliers provide
 - Add, edit, delete parts that the suppliers provide
