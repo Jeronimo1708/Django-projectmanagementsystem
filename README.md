@@ -1,25 +1,35 @@
-# project
 Django Project Management System
 
-This is a project management system built for construction companies. It keep a track of clients and staff members along with the different types of project that the company
-works on and the different tasks for that project. This project is built using Django.
+I have built a project management system using Django intended to be used by construction companies who would like to keep track of their clients, projects and tasks in the projects. It can also keep a track of the staff members working for a company and also staff members can be assigned to each individual task. 
+The admin will have control over the entire system i.e. they can
+- Add, edit, delete clients
+- Add, edit, delete staff
+- Add, edit, delete projects
+- Add, edit, delete tasks
+- Add, edit, delete suppliers
+- Add, edit, delete services that the suppliers provide
+- Add, edit, delete parts that the suppliers provide
+- Add new payments for the clients. Edit and delete them too. 
 
-Functions
-Add, edit and delete clients
-View the count of clients on the dashboard
+The admin superuser can be created from the AWS console using Django command > python manage.py createsuperuser
+The username and the password for the admin is set at this stage. The admin can then login using their username and password.
+I have created a dummy account for the admin
+username - admin@admin.com
+password - adminadmin
 
-Add, edit and delete staff
-View the count of staff on the dashboard
+To replicate this project
+- Create a new virtual environment on you computer or use a AWS cloud9 container
+- Install Django 3.1 using the pip enviornment
+- Clone this repository using git clone
+- Change the settings.py file as per your configurations
+- You can then start the server by the following command > python manage.py runserver (Note: If using AWS you will have to add 8080 at the end of this line)
+- If everything is installed successfully, you will be redirected to the login page.
+![login](https://user-images.githubusercontent.com/64229911/129592121-da7b2174-98fd-4d4d-adc1-48b5a376882a.PNG)
 
-Add, edit and delete project
-View the count of projects on the dashboard
 
-Add, edit and delete tasks
-View the count of tasks on the dashboard
 
-Add, edit and delete Supplier
-Add, edit and delete Services
-Add, edit and delete Parts
+
+I want to include future functionalities wherein I will be making login views for both staff and clients.
 
 Workflow
 
