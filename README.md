@@ -54,6 +54,11 @@ I am using pymysql and jupyter notebooks to exceute SQL queries on the database.
 
 ![sql](https://user-images.githubusercontent.com/64229911/129626193-eb84dff9-829d-41f6-99e2-f4135d0cf26e.PNG)
 
+And here is a working SQL Select statement suing PYMYSQL
+
+![select](https://user-images.githubusercontent.com/64229911/129626474-ded77971-70ed-483d-9825-dbbfa0e410da.PNG)
+
+
 
 ___________________________________________________________________________________________________________________
 
