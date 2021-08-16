@@ -1,4 +1,4 @@
-Django Project Management System
+**Django Project Management System**
 
 I have built a project management system using Django intended to be used by construction companies who would like to keep track of their clients, projects and tasks in the projects. It can also keep a track of the staff members working for a company and also staff members can be assigned to each individual task. 
 The admin will have control over the entire system i.e. they can
