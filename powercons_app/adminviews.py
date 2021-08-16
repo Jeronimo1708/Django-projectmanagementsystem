@@ -10,6 +10,8 @@ import json
 from powercons_app.models import CustomUser, AdminUser, Staffs, Projects, Tasks, Clients, Contracts, Suppliers, Services, Parts, Payments, Documents, Locations
 from .forms import AddClientForm, EditClientForm
 
+# This is to render the homepage
+
 def admin_home(request):
     all_client_count = Clients.objects.all().count()
     task_count = Tasks.objects.all().count()
@@ -21,6 +23,8 @@ def admin_home(request):
     project_name_list = []
     task_count_list = []
     client_count_list_in_project = []
+    
+    
     
     for project in project_all:
         tasks = Tasks.objects.filter(project_id=project.id).count()
@@ -51,6 +55,8 @@ def admin_home(request):
         "client_count_list_in_task": client_count_list_in_task,
     }
     return render(request, "admintemplate/home_content.html", context)
+
+# This is to render the add staff page
     
 def add_staff(request):
     return render(request, "admintemplate/add_staff_template.html")
@@ -79,7 +85,7 @@ def add_staff_save(request):
             messages.error(request, "Failed to Add Staff!")
             return redirect('add_staff')
 
-
+# This will render manage staff page
 
 def manage_staff(request):
     staffs = Staffs.objects.all()
@@ -88,6 +94,7 @@ def manage_staff(request):
     }
     return render(request, "admintemplate/manage_staff_template.html", context)
 
+# This will render edit staff page
 
 def edit_staff(request, staff_id):
     staff = Staffs.objects.get(admin=staff_id)
@@ -131,7 +138,7 @@ def edit_staff_save(request):
             messages.error(request, "Failed to Update Staff.")
             return redirect('/edit_staff/'+staff_id)
 
-
+# This will delete the staff
 
 def delete_staff(request, staff_id):
     staff = Staffs.objects.get(admin=staff_id)
@@ -143,7 +150,7 @@ def delete_staff(request, staff_id):
         messages.error(request, "Failed to Delete Staff.")
         return redirect('manage_staff')
 
-
+# This will render the add project page
 
 
 def add_project(request):
@@ -169,7 +176,8 @@ def add_project_save(request):
             messages.error(request, "Failed to Add Project!")
             return redirect('add_project')
 
-
+# This will render the manage project page
+        
 def manage_project(request):
     projects = Projects.objects.all()
     context = {
@@ -177,6 +185,7 @@ def manage_project(request):
     }
     return render(request, 'admintemplate/manage_project_template.html', context)
 
+# This will render edit project page
 
 def edit_project(request, project_id):
     project = Projects.objects.get(id=project_id)
@@ -209,6 +218,7 @@ def edit_project_save(request):
             messages.error(request, "Failed to Update Project.")
             return redirect('/edit_project/'+project_id)
 
+ # This will render delete project page
 
 def delete_project(request, project_id):
     project = Projects.objects.get(id=project_id)
