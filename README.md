@@ -31,8 +31,8 @@ To replicate this project
 - The admin dashboard looks like this
 - ![dashboard](https://user-images.githubusercontent.com/64229911/129622818-c0a0dc64-73bd-4084-a61a-f94cc1092b94.PNG)
 - You will be able to see the count of existing clients, staff, projects and Tasks on the dashboard.
-- There is a setting option through which admin details can be changed.
-- The sidebar contain details about Staff, Clients, Projects, Tasks, Contracts, Suppliers, Services, Parts, Payments.
+- There is a settings option through which admin details can be changed.
+- The sidebar contains details about Staff, Clients, Projects, Tasks, Contracts, Suppliers, Services, Parts, Payments.
 - On clicking on any of the links, existing entries from the database can be viewed and edited. Also, new details can be added for each of these.
 - For example the on clicking staff, you will see the following
 - ![Staff](https://user-images.githubusercontent.com/64229911/129623230-3f6ded23-4376-4fc8-9cdc-a5e1a5f89f9a.PNG)
