@@ -47,6 +47,13 @@ The recommended workfow before using this application is
 - As this application is built for a construction company to keep a track of their projects, clients etc. There will be projects created and the projects will have fixed tasks. For ex - Building project will have a set number of tasks. Electrical project will have its own set of tasks and these tasks will not change under normal circumstances. 
 - The admin user will first create a new contract for a new client.
 - Then admin will add that client to the system and link the project to the client.
+___________________________________________________________________________________________________________________
+
+Here are all the database tables created
+I am using pymysql and jupyter notebooks to exceute SQL queries on the database.
+
+![sql](https://user-images.githubusercontent.com/64229911/129626193-eb84dff9-829d-41f6-99e2-f4135d0cf26e.PNG)
+
 
 ___________________________________________________________________________________________________________________
 
