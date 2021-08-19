@@ -15,15 +15,16 @@ The admin will have control over the entire system i.e. they can
 The admin superuser can be created from the AWS console using Django command > python manage.py createsuperuser
 The username and the password for the admin is set at this stage. The admin can then login using their username and password.
 I have created a dummy account for the admin
-username - admin@admin.com
-password - adminadmin
+- username - admin@admin.com
+- password - adminadmin
 
 To replicate this project
 - Create a new virtual environment on you computer or use a AWS cloud9 container
 - Install Django 3.1 using the pip enviornment
 - Clone this repository using git clone
 - Change the settings.py file as per your configurations
-- You can then start the server by the following command > python manage.py runserver (Note: If using AWS you will have to add 8080 at the end of this line)
+- You can then start the server by the following command 
+- > python manage.py runserver (Note: If using AWS you will have to add 8080 at the end of this line)
 - If everything is installed successfully, you will be redirected to the login page.
 ![login](https://user-images.githubusercontent.com/64229911/129592121-da7b2174-98fd-4d4d-adc1-48b5a376882a.PNG)
 
